@@ -1,0 +1,253 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Fastify Router": {
+		"prefix": "ffrouter",
+		"body": [
+			"async function router(fastify, options) {",
+			"\tfastify.get('/', async (request, reply) => {",
+			"\t\treturn { hello: 'world' }",
+			"\t})",
+			"",
+			"}",
+			"",
+			"export default router"
+		]
+	},
+	"Fastify Not Found": {
+		"prefix": "ffnotfound",
+		"body": [
+			"fastify.setNotFoundHandler((request, reply) => {",
+			"\treply.code(404)",
+			"\treply.header('Content-Type', 'application/json')",
+			"\treply.send({",
+			"\t\tstatus: false",
+			"\t})",
+			"})"
+		]
+	},
+	"Fastify Template": {
+		"prefix": "fffastify",
+		"body": [
+			"import Fastify from 'fastify'",
+			"const fastify = Fastify({",
+			"\tlogger: true",
+			"})",
+			"",
+			"fastify.listen(3000, '0.0.0.0', function (err, address) {",
+			"\tif (err) {",
+			"\t\tfastify.log.error(err)",
+			"\t\tprocess.exit(1)",
+			"\t}",
+			"})"
+		]
+	},
+	"Fastify Error Handler": {
+		"prefix": "fferrorhandler",
+		"body": [
+			"fastify.setErrorHandler(function (error, request, reply) {",
+			"\tthis.log.error(error)",
+			"\treply.status(500).send({ ok: false })",
+			"})"
+		]
+	},
+	"Fastify Register Plugin": {
+		"prefix": "ffrplugin",
+		"body": [
+			"fastify.register(function plugin (instance, opts, next) {",
+			"\tnext()",
+			"})"
+		]
+	},
+	"Fastify Register": {
+		"prefix": "ffregister",
+		"body": [
+			"fastify.register($1)"
+		]
+	},
+	"Fastify Register Router": {
+		"prefix": "ffrrouter",
+		"body": [
+			"fastify.register($1, {",
+			"\tprefix: \"$2\"",
+			"})"
+		]
+	},
+	"Fastify All Handler": {
+		"prefix": "ffall",
+		"body": [
+			"fastify.all('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Get Handler": {
+		"prefix": "ffget",
+		"body": [
+			"fastify.get('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Head Handler": {
+		"prefix": "ffhead",
+		"body": [
+			"fastify.head('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Post Handler": {
+		"prefix": "ffpost",
+		"body": [
+			"fastify.post('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Put Handler": {
+		"prefix": "ffput",
+		"body": [
+			"fastify.put('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Delete Handler": {
+		"prefix": "ffdelete",
+		"body": [
+			"fastify.delete('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Options Handler": {
+		"prefix": "ffoptions",
+		"body": [
+			"fastify.options('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Patch Handler": {
+		"prefix": "ffpatch",
+		"body": [
+			"fastify.patch('/$1', async (request, reply) => {",
+			"\treturn { hello: 'world' }",
+			"})"
+		]
+	},
+	"Fastify Send": {
+		"prefix": "ffsend",
+		"body": [
+			"reply.send($1)"
+		]
+	},
+	"Fastify Code": {
+		"prefix": "ffcode",
+		"body": [
+			"reply.code($1)"
+		]
+	},
+	"Fastify Status": {
+		"prefix": "ffstatus",
+		"body": [
+			"reply.status()"
+		]
+	},
+	"Fastify Status Code": {
+		"prefix": "ffstatusCode",
+		"body": [
+			"reply.statusCode = $1"
+		]
+	},
+	"Fastify Header": {
+		"prefix": "ffheader",
+		"body": [
+			"reply.header('$1', '$2')"
+		]
+	},
+	"Fastify Headers": {
+		"prefix": "ffheaders",
+		"body": [
+			"reply.headers({",
+			"\t$1",	
+			"})"
+		]
+	},
+	"Fastify Get Header": {
+		"prefix": "ffgetheader",
+		"body": [
+			"reply.getHeader('$1')"
+		]
+	},
+	"Fastify Get Headers": {
+		"prefix": "ffgetheaders",
+		"body": [
+			"reply.getHeaders()"
+		]
+	},
+	"Fastify Remove Header": {
+		"prefix": "ffremoveheader",
+		"body": [
+			"reply.removeHeader('$1')"
+		]
+	},
+	"Fastify Has Header": {
+		"prefix": "ffhasheader",
+		"body": [
+			"reply.hasHeader('$1')"
+		]
+	},
+	"Fastify Set Cookie": {
+		"prefix": "ffsetcookie",
+		"body": [
+			"reply.setCookie('$1', '$2')"
+		]
+	},
+	"Fastify Body": {
+		"prefix": "ffbody",
+		"body": [
+			"request.body"
+		]
+	},
+	"Fastify Cookie": {
+		"prefix": "ffcookie",
+		"body": [
+			"request.cookies"
+		]
+	},
+	"Fastify Query": {
+		"prefix": "ffquery",
+		"body": [
+			"request.query"
+		]
+	},
+	"Fastify Params": {
+		"prefix": "ffparams",
+		"body": [
+			"request.params"
+		]
+	},
+	"Fastify Decorate": {
+		"prefix": "ffdecorate",
+		"body": [
+			"fastify.decorate('$1', function ($2) {",
+			"\t$3",
+			"})"
+		]
+	}
+}
+
+  
